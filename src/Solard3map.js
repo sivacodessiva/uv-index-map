@@ -8,7 +8,10 @@ function Map2Component() {
     const height = 600;
 
     // Clear any existing SVG elements, sliders, labels, or legends to avoid duplicates
-    
+    d3.select("#d3-map2").select("svg").remove();
+    d3.select("#d3-map2").select("input").remove();
+    d3.select("#d3-map2").select("div#year-label").remove();
+    d3.select("#d3-map2").select("svg.legend").remove();
 
     const svg = d3.select("#d3-map2")
       .append("svg")

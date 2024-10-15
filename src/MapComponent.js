@@ -80,30 +80,31 @@ const MyMap = () => {
     };
 
     return (
-        <MapContainer center={[37.7749, -122.4194]} zoom={5} style={{ height: "100vh", width: "100%" }}>
-            <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            {geoData && (
-                <GeoJSON
-                    data={geoData}
-                    style={(feature) => ({
-                        fillColor: getColor(/* get UV index for the state here */),
-                        weight: 2,
-                        opacity: 1,
-                        color: 'white',
-                        fillOpacity: 0.7,
-                    })}
-                />
-            )}
-            {cities.map((city, index) => (
-                <Marker key={index} position={[city.latitude, city.longitude]}>
-                    <Popup>
-                        {city.city}, {city.state} <br /> Station Code: {city.stationCode}
-                    </Popup>
-                </Marker>
-            ))}
-        </MapContainer>
+        <MapContainer center={[37.7749, -122.4194]} zoom={5} style={{ height: "100%", width: "100%" }}>
+    <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    />
+    {geoData && (
+        <GeoJSON
+            data={geoData}
+            style={(feature) => ({
+                fillColor: getColor(/* get UV index for the state here */),
+                weight: 2,
+                opacity: 1,
+                color: 'white',
+                fillOpacity: 0.7,
+            })}
+        />
+    )}
+    {cities.map((city, index) => (
+        <Marker key={index} position={[city.latitude, city.longitude]}>
+            <Popup>
+                {city.city}, {city.state} <br /> Station Code: {city.stationCode}
+            </Popup>
+        </Marker>
+    ))}
+</MapContainer>
+
     );
 };
 
